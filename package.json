@@ -1,0 +1,30 @@
+{
+  "name": "parse-formats",
+  "version": "0.1.0",
+  "description": "Methods for synchronously parsing various data formats to JS objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DSKrepps/parse-formats.git"
+  },
+  "author": "DSKrepps <dskrepps@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DSKrepps/parse-formats/issues"
+  },
+  "homepage": "https://github.com/DSKrepps/parse-formats",
+  "keywords": [
+    "cson",
+    "csv",
+    "hjson",
+    "ini",
+    "json",
+    "json5",
+    "xml",
+    "yaml",
+    "yml"
+  ]
+}
