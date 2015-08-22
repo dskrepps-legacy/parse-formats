@@ -1,45 +1,52 @@
 ## parse-formats
 
-An object of functions to synchronously parse various data formats to JS objects. The module dependencies are not included, install them as necessary.
+Provides a list of various modules to parse data formats synchronously to JS objects.
 
-Feel free to suggest more formats or better modules to parse them with via issue or pull request.
+Feel free to suggest more formats or more modules to parse them with via issue or pull request.
+
+[![NPM](https://nodei.co/npm/parse-formats.png)](https://nodei.co/npm/parse-formats/)
 
 ````js
+
+/* Common patterns */
+function parse (parser, data, opts) {
+	return parser.parse(data, opts);
+}
+
+function self (parser, data, opts) {
+	return parser(data, opts);
+}
+
+
+/* { ext: { moduleName: function(module, data, opts) } } */
 module.exports = {
-	'.cson': function (data) {
-		var cson = require('cson-parser');
-		return cson.parse(data);
+	'.cson':  { 'cson-parser': parse },
+	'.csv':   {
+		'parser-csv': function (parser, data, opts) {
+			return parser.parseSync(data, opts);
+		},
 	},
-	'.csv': function (data, opts) {
-		var csv2array = require('csv2array');
-		return csv2array(data, opts);
+	'.hjson': { 'hjson': parse },
+	'.ini':   { 'ini': parse },
+	'.json':  {
+		'strip-json-comments': function (stripComments, data) {
+			return JSON.parse(stripComments(data));
+		},
+		'path': function (_, data) {
+			return JSON.parse(data);
+		},
 	},
-	'.hjson': function (data, opts) {
-		var hjson = require('hjson');
-		return hjson.parse(data, opts);
+	'.json5': { 'json5': parse },
+	'.xml': {
+		'xml2json': function (xml2json, data, opts) {
+			return JSON.parse(xml2json.toJson(data, opts));
+		},
 	},
-	'.ini': function(data) {
-		var ini = require('ini');
-		return ini.parse(data);
-	},
-	'.json': function (data) {
-		var stripJsonComments = require('strip-json-comments');
-		return JSON.parse(stripJsonComments(data));
-	},
-	'.json5': function (data) {
-		var JSON5 = require('json5');
-		return JSON5.parse(data);
-	},
-	'.xml': function (data, opts) {
-		var xml2json = require('xml2json');
-		return JSON.parse(xml2json.toJson(data, opts));
-	},
-	'.yaml': yaml,
-	'.yml': yaml,
+	'.yaml': { 'js-yaml': jsYaml },
+	'.yml':  { 'js-yaml': jsYaml },
 };
 
-function yaml (data, opts) {
-	var yaml = require('js-yaml');
-	return yaml.load(data, opts);
+function jsYaml (jsYaml, data, opts) {
+	return jsYaml.load(data, opts);
 }
 ````
