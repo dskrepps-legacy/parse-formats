@@ -1,6 +1,6 @@
 {
   "name": "parse-formats",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Methods for synchronously parsing various data formats to JS objects.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "yaml",
     "yml"
   ],
-  "dependencies": {
+  "devDependencies": {
     "tape": "^4.2.0",
     "cson-parser": "^1.1.1",
     "parser-csv": "^0.2.0",
