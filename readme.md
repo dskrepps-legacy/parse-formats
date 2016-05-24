@@ -6,6 +6,20 @@ Feel free to suggest more formats or more modules to parse them with via issue o
 
 [![NPM](https://nodei.co/npm/parse-formats.png)](https://nodei.co/npm/parse-formats/)
 
+#### Formats
+| Ext   | format | npm module |
+| :---- |:------:| ----------:|
+| .cson | [cson](https://github.com/bevry/cson) | [cson-parser](https://www.npmjs.com/package/cson-parser) |
+| .csv | [csv](https://en.wikipedia.org/wiki/Comma-separated_values) | [parser-csv](https://www.npmjs.com/package/parser-csv) |
+| .hjson | [hjson](https://hjson.org/) | [hjson](https://www.npmjs.com/package/hjson) |
+| .ini | [ini](https://en.wikipedia.org/wiki/INI_file) | [ini](https://www.npmjs.com/package/ini) |
+| .json | [json](http://www.json.org/) | [strip-json-comments](strip-json-comments) or native |
+| .json5 | [json5](http://json5.org/) | [json5](https://www.npmjs.com/package/json5) |
+| .xml | [xml](https://en.wikipedia.org/wiki/XML) | [xml2json](https://www.npmjs.com/package/xml2json) |
+| .yaml, .yml | [yaml](http://yaml.org/) | [js-yaml](https://www.npmjs.com/package/js-yaml) |
+
+#### Source
+
 ````js
 
 /* Common patterns */
